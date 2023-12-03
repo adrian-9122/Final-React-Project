@@ -1,0 +1,21 @@
+include layout
+
+html
+    head
+        title Products
+    body
+        br
+        div.container.text-center
+            h2 Products
+            table.table.table-striped.table-sm-bordered
+                thead
+                    tr
+                        th Product
+                        th Total Sales
+                    tbody
+                        each p in products
+                            tr
+                                td= p.ItemName
+                                td= p.TotalSales
+            a(href="postNewProduct")
+                button(type="button" class='btn btn-primary') Insert New Product

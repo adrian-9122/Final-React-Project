@@ -1,0 +1,17 @@
+include layout
+.container
+    h1.mt-3
+    div.mt-3
+        h1 Update a customer
+        h2=id
+    div.mt-2
+        form(action='/postUpdateCustomer' method='post')
+            .form-group
+                input.form-control(type='hidden' name='id' value= id )
+            .form-group
+                label(for='CustomerName') Name
+                input.form-control(type='text' aria-describedby='emailHelp' id='CustomerName' name='name' value= name )
+            .form-group
+                label(for='CustomerEmail') Email
+                input.form-control(type='text' aria-describedby='emailHelp' id='CustomerEmail' name='email' value= email )
+            button.btn.btn-primary(type='submit') Update

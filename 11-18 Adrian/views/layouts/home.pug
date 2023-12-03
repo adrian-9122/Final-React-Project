@@ -1,0 +1,48 @@
+include layout
+
+doctype html
+head
+    meta(charset='UTF-8')
+    title Home
+    style.
+        body{
+        }
+        button {
+            background-color: blue;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .th strong {
+            font-weight: bold;
+        }
+.container
+    br
+    .row
+        .col-sm
+            ol
+                th Top Customers
+                    each c in customers
+                        li= `${c.CustomerName} - ${c.TotalSales}`
+                    a(href="showCustomers")
+                        button(type="button" class='btn btn-primary') Show All
+        .col-sm
+            ol
+                th Top Products
+                each p in products
+                    li= `${p.ItemName} - ${p.TotalSales}`
+                a(href="showProducts")
+                    button(type="button" class='btn btn-primary') Show All
+        .col-sm
+            ol
+                th Top sales
+                each s in sales
+                    li= `${s.Date} - ${s.TotalSales}`
+                a(href="showSales")
+                    button(type="button" class='btn btn-primary') Show All

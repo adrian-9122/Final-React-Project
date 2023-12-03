@@ -1,0 +1,26 @@
+include layout
+
+html
+    head
+        title Sales
+    body
+        br
+        div.container.text-center
+            div.container-sm
+                h2 Sales
+                table.table.table-striped.table-sm-bordered
+                    thead
+                        tr
+                            th Date
+                            th Customer
+                            th Product
+                            th Quantity
+                            th Total Sales
+                    tbody
+                        each s in sales
+                            tr
+                                td= s.Date
+                                td= s.CustomerName
+                                td= s.Product
+                                td= s.Quantity
+                                td= s.TotalSales

@@ -1,0 +1,20 @@
+include layout
+
+h1 Please enter product info.
+
+html
+    head
+        title Product Forms
+    body
+        .container
+            h3 Product Information
+form(action="/postNewProduct", method="post")
+    .form-group
+        label(for="name") Name:
+        input#name(type="text", name="name", required)
+    br
+    .form-group
+        label(for="price") Price:
+        input#email(type="text", name="price", required)
+    br
+    button.btn.btn-primary(type="submit") Submit All

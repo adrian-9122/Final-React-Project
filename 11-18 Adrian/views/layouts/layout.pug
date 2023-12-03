@@ -1,0 +1,53 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    title Title
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    script(src='js/bootstrap.bundle.js' rel='stylesheet')
+style.
+    body{
+        background-color: orange;
+    }
+    .custom-navbar {
+        background-color: #1ea5ff;
+        height: 100px;
+    }
+    .navbar-brand {
+        height: 72px;
+        justify-content: center;
+        color: black;
+    }
+    .navbar-button {
+        background-color: #e0b4b4;
+        color: black;
+        padding: 5px;
+        margin: 0 10px;
+        border-radius: 8px; 
+    }
+    img {
+        min-width: 100px;
+        min-height:75px;
+    }
+    .active a {
+        font-weight: bold;
+    }
+
+
+
+nav.navbar.navbar-expand-lg.navbar-dark.custom-navbar.static-top
+    .container
+        a.navbar-brand(href='/')
+            img(src='https://cdn.discordapp.com/attachments/1042821009457283193/1166887441492353024/Happy_harrys.png?ex=654c1f9d&is=6539aa9d&hm=6316fca39aab36da71293a74da4cc8b7821e5093d90e2ba064b305620c9394af&' alt='logoHere' height='36')
+            heading.text-center Happy Harry's Hardware
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.ms-auto
+                li.nav-item
+                    a.nav-link.navbar-button(href='/') Home
+                li.nav-item
+                    a.nav-link.navbar-button(href='/showCustomers') Customers
+                li.nav-item
+                    a.nav-link.navbar-button(href='/showProducts') Products
+                li.nav-item
+                    a.nav-link.navbar-button(href='/showSales') Sales

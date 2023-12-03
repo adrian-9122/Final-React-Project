@@ -1,0 +1,27 @@
+include layout
+
+html
+    head
+        title Customers
+    body
+        br
+        div.container.text-center
+            h2 Customers
+            table.table.table-striped.table-sm-bordered
+                thead
+                    tr
+                        th.blue-header Name
+                        th.blue-header Email
+                        th.blue-header Total Sales
+                        th.blue-header
+                tbody
+                    each c in customers
+                        tr
+                            td= c.CustomerName
+                            td= c.CustomerEmail
+                            td= c.TotalSales
+                            td
+                                form( method='get' action='updateCustomer/' + c.CustomerID )
+                                    button.btn.btn-outline-primary(type='submit') Update
+            a(href="postNewCustomer")
+                button(type="button" class='btn btn-primary') Insert New Customer

@@ -1,0 +1,20 @@
+include layout
+
+h1 Please enter customer info.
+
+html
+    head
+        title Customer Forms
+    body
+        .container
+            h3 Customer Information
+            form(action="/postNewCustomer", method="post")
+                .form-group
+                    label(for="name") Name:
+                    input#name(type="text", name="name", required)
+                br
+                .form-group
+                    label(for="email") Email:
+                    input#email(type="email", name="email", required)
+                br
+                button.btn.btn-primary(type="submit") Submit All
