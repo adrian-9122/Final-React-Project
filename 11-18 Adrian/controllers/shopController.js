@@ -21,21 +21,14 @@ exports.getCustomerSales = (req, res)=>{
     Customer.fetchCustomerSales()
         .then((rows, fData) =>
         {
-            res.render('showCustomers', {
-                customers: rows[0]
-
-            })
-
+            res.json(rows[0])
         })
 }
 exports.showSales = (req, res)=>{
     Sales.fetchSalesDetails()
         .then((rows, fData) =>
         {
-            res.render('showSales', {
-                sales: rows[0]
-            })
-
+            res.json(rows[0])
         })
 }
 
@@ -43,24 +36,22 @@ exports.showProducts = ( req, res, next ) => {
         Product.fetchProductDetails()
             .then((rows, fData) =>
             {
-                res.render('showProducts', {
-                    products: rows[0]
-                })
+                res.json(rows[0])
             })
 }
 exports.getCustomerInfo = ( req, res, next ) => {
-    res.render('postNewCustomer', {})
+    // res.render('postNewCustomer', {})
+    res.json({})
 }
 exports.getProductInfo = ( req, res, next ) => {
-    res.render('postNewProduct', {})
+    // res.render('postNewProduct', {})
+    res.json( {})
 }
 exports.postCustomerInfo = ( req, res, next ) => {
-
     let name = req.body.name;
     let email = req.body.email;
     const customer = new Customer( name, email );
     customer.save()
-        .then(res.redirect('/showCustomers'))
 }
 
 exports.postProductInfo = ( req, res, next ) => {
@@ -69,6 +60,7 @@ exports.postProductInfo = ( req, res, next ) => {
     const product = new Product( name, price );
     product.save()
         .then(res.redirect('/showProducts'))
+    // add react here
 }
 //changes
 exports.updateCustomer = (req, res, next) => {
