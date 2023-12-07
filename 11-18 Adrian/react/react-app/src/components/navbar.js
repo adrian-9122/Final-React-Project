@@ -1,64 +1,24 @@
 // Navbar.js
-import React from 'react';
-import { Link } from 'react-router-dom'; // If you're using React Router
-
-function Navbar() {
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+function BrandExample() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
-                {/* Brand/logo */}
-                <Link className="navbar-brand" to="/">
-                    Your Logo
-                </Link>
-
-                {/* Navbar toggle button */}
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-
-                {/* Navbar links */}
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ml-auto">
-                        {/* Home button */}
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/">
-                                Home
-                            </Link>
-                        </li>
-
-                        {/* Customers button */}
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/customers">
-                                Customers
-                            </Link>
-                        </li>
-
-                        {/* Products button */}
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/products">
-                                Products
-                            </Link>
-                        </li>
-
-                        {/* Sales button */}
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/sales">
-                                Sales
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <Navbar expand="lg" className="bg-body-tertiary"  >
+            <Container style={{backgroundColor: '#00FFFF'}}>
+                <Navbar.Brand href="#home">Happy Harry's Hardware</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                         <Nav.Link href="/HomePage">Home</Nav.Link>
+                        <Nav.Link href="/CustomerPage">Customers</Nav.Link>
+                        <Nav.Link href="/ProductPage">Products</Nav.Link>
+                        <Nav.Link href="/SalesPage">Sales</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }
 
-export default Navbar;
+export default BrandExample;

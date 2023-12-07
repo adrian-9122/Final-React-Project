@@ -2,13 +2,17 @@ const express = require("express");
 const shopController = require('./controllers/shopController');
 const mysql = require('mysql2/promise');
 const app = express();
-
 app.set( 'view engine', 'pug'); // set engine
 app.set( 'views', 'views/layouts'); // set views
 const shopRoutes = require("./routes/shop");
 const bodyParser = require("body-parser");
 const path = require("path");
 const http = require("http");
+
+///
+const cors = require("cors");
+app.use(cors());
+///
 
 const pool = mysql.createPool({
     // host : 'localhost',
