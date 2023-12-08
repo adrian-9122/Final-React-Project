@@ -14,7 +14,6 @@ function CustomerPage(props) {
             .then((data) => setCustomers(data))
             .catch((error) => console.error('Error fetching data:', error));
     }, []); // Empty dependency array ensures the effect runs only once on mount
-
     const handleUpdate = (id) => {
         // Implement the update functionality
         console.log(`Update button clicked for customer with ID ${id}`);
