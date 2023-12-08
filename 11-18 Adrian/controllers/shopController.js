@@ -8,15 +8,21 @@ const Customer = require('../models/Customer');
 
 
 exports.showHome = async (req, res) => {
-    let allCustomerInfo = await Customer.fetchCustomerSales();
-    let allProductInfo = await Product.fetchProductDetails();
-    let allSalesInfo = await Sales.getMonthly();
-    res.render('home', {
-        customers: allCustomerInfo[0].slice(0,5),
-        products: allProductInfo[0].slice(0,5),
-        sales: allSalesInfo[0].slice(0,5)
-    });
-}
+    try {
+        const allCustomerInfo = (await Customer.fetchCustomerSales())[0].slice(0, 5);
+        const allProductInfo = (await Product.fetchProductDetails())[0].slice(0, 5);
+        const allSalesInfo = (await Sales.getMonthly())[0].slice(0, 5);
+
+        res.json({
+            customerInfo: allCustomerInfo,
+            productInfo: allProductInfo,
+            salesInfo: allSalesInfo,
+        });
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
 exports.getCustomerSales = (req, res)=>{
     Customer.fetchCustomerSales()
         .then((rows, fData) =>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from './navbar';
+// import Navbar from './navbar';
 import { Button } from 'react-bootstrap';
 import {Route, Routes} from "react-router-dom";
 import InsertCustomer from "./InsertCustomer";
@@ -13,7 +13,7 @@ function CustomerPage(props) {
             .then((response) => response.json())
             .then((data) => setCustomers(data))
             .catch((error) => console.error('Error fetching data:', error));
-    }, []); // Empty dependency array ensures the effect runs only once on mount
+    }, []);
     const handleUpdate = (id) => {
         // Implement the update functionality
         console.log(`Update button clicked for customer with ID ${id}`);
@@ -22,6 +22,7 @@ function CustomerPage(props) {
     const handleDelete = (id) => {
         // Implement the delete functionality
         console.log(`Delete button clicked for customer with ID ${id}`);
+
     };
 
     return (
