@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './navbar';
+import { Button } from 'react-bootstrap';
 
 function CustomerPage(props) {
     const [customers, setCustomers] = useState([]);
@@ -12,6 +13,16 @@ function CustomerPage(props) {
             .catch((error) => console.error('Error fetching data:', error));
     }, []); // Empty dependency array ensures the effect runs only once on mount
 
+    const handleUpdate = (id) => {
+        // Implement the update functionality
+        console.log(`Update button clicked for customer with ID ${id}`);
+    };
+
+    const handleDelete = (id) => {
+        // Implement the delete functionality
+        console.log(`Delete button clicked for customer with ID ${id}`);
+    };
+
     return (
         <div>
             <h1>Customers</h1>
@@ -20,8 +31,8 @@ function CustomerPage(props) {
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <th></th>
-                    <th></th>
+                    <th>Update</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,14 +40,23 @@ function CustomerPage(props) {
                     <tr key={customer.CustomerID}>
                         <td>{customer.CustomerName}</td>
                         <td>{customer.CustomerEmail}</td>
-                        <td></td>
-                        <td></td>
+                        <td>
+                            <Button variant="info" onClick={() => handleUpdate(customer.CustomerID)}>
+                                Update
+                            </Button>
+                        </td>
+                        <td>
+                            <Button variant="danger" onClick={() => handleDelete(customer.CustomerID)}>
+                                Delete
+                            </Button>
+                        </td>
                     </tr>
                 ))}
                 </tbody>
             </table>
+            <Button> Insert New Customer</Button>
         </div>
     );
 }
-
 export default CustomerPage;
+

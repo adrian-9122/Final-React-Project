@@ -12,7 +12,6 @@ const http = require("http");
 ///
 const cors = require("cors");
 app.use(cors());
-///
 
 const pool = mysql.createPool({
     // host : 'localhost',

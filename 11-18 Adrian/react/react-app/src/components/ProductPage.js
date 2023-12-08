@@ -12,6 +12,16 @@ function ProductPage(props) {
             .catch((error) => console.error('Error fetching data:', error));
     }, []); // Empty dependency array ensures the effect runs only once on mount
 
+    const handleUpdate = (id) => {
+        // Implement the update functionality
+        console.log(`Update button clicked for product with ID ${id}`);
+    };
+
+    const handleDelete = (id) => {
+        // Implement the delete functionality
+        console.log(`Delete button clicked for product with ID ${id}`);
+    };
+
     return (
         <div>
             <h1>Products</h1>
@@ -20,17 +30,25 @@ function ProductPage(props) {
                 <tr>
                     <th>Product</th>
                     <th>Total Sales</th>
-                    <th>-</th>
-                    <th>-</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
-                {products.map((product, index) => (
-                    <tr key={index}>
+                {products.map((product) => (
+                    <tr key={product.id}>
                         <td>{product.ItemName}</td>
                         <td>{product.TotalSales}</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>
+                            <Button variant="info" onClick={() => handleUpdate(product.id)}>
+                                Update ({product.id})
+                            </Button>
+                        </td>
+                        <td>
+                            <Button variant="danger" onClick={() => handleDelete(product.id)}>
+                                Delete ({product.id})
+                            </Button>
+                        </td>
                     </tr>
                 ))}
                 </tbody>
