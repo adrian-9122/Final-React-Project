@@ -53,6 +53,7 @@ function ProductPage(props) {
                 ))}
                 </tbody>
             </table>
+            <Button> Insert New Product</Button>
         </div>
     );
 }
