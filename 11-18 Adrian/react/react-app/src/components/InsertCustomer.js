@@ -41,7 +41,7 @@ function InsertCustomer() {
                     />
                 </label>
 
-                <br />
+                <br /> <br/>
 
                 <label>
                     Customer Email:
@@ -52,9 +52,7 @@ function InsertCustomer() {
                         required
                     />
                 </label>
-
-                <br />
-
+                <br /> <br />
                 <button type="submit">Submit</button>
             </form>
         </div>

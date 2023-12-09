@@ -59,7 +59,7 @@ function CustomerPage(props) {
                 ))}
                 </tbody>
             </table>
-            <Button> Insert New Customer</Button>
+            <Button href='/InsertCustomer'> Insert New Customer</Button>
         </div>
     );
 }

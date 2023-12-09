@@ -5,12 +5,11 @@ function ProductPage(props) {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        // Fetch data when the component mounts
         fetch('http://localhost:3009/showProducts')
             .then((response) => response.json())
             .then((data) => setProducts(data))
             .catch((error) => console.error('Error fetching data:', error));
-    }, []); // Empty dependency array ensures the effect runs only once on mount
+    }, []);
 
     const handleUpdate = (id) => {
         // Implement the update functionality
@@ -53,7 +52,7 @@ function ProductPage(props) {
                 ))}
                 </tbody>
             </table>
-            <Button> Insert New Product</Button>
+            <Button href='InsertProduct'> Insert New Product</Button>
         </div>
     );
 }

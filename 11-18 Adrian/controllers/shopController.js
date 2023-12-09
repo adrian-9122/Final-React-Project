@@ -60,15 +60,24 @@ exports.postCustomerInfo = ( req, res, next ) => {
     customer.save()
 }
 
-exports.postProductInfo = ( req, res, next ) => {
+exports.postProductInfo = (req, res, next) => {
     let name = req.body.name;
     let price = req.body.price;
-    const product = new Product( name, price );
-    product.save()
-        .then(res.redirect('/showProducts'))
-    // add react here
-}
-//changes
+
+    if (name !== undefined && price !== undefined) {
+        const product = new Product(name, price);
+        product.save()
+            .then(() => {
+                res.redirect('/showProducts');
+            })
+            .catch(error => {
+                console.error('Error saving product:', error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            });
+    } else {
+        res.status(400).json({ error: 'Bad Request' });
+    }
+};
 exports.updateCustomer = (req, res, next) => {
     let id = req.params.id;
     Customer.findById(id)

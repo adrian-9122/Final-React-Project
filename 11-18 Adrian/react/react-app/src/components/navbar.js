@@ -6,7 +6,7 @@ import logoImage from '../imgs/HappyHarrys.png';
 
 function BrandExample() {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="bg-body-tertiary" >
             <Container style={{ backgroundColor: '#5b9bd5' }}>
                 <Navbar.Brand href="/HomePage">
                     <img

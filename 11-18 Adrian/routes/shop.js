@@ -15,5 +15,4 @@ router.post('/postNewProduct', shopController.postProductInfo);
 router.get( '/updateCustomer/:id', shopController.updateCustomer);
 router.post( '/postUpdateCustomer', shopController.postUpdateCustomer);
 
-
 module.exports = router;
